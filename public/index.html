@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Jokebook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+      header {
+        background: #111827;
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      .card {
+        background: #1f2937;
+        border: 1px solid #334155;
+        border-radius: 0.75rem;
+        padding: 1rem;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      button {
+        background: #3b82f6;
+        border: none;
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+      input, select, textarea {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0.35rem;
+        border-radius: 0.5rem;
+        border: 1px solid #334155;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+      .joke {
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #334155;
+      }
+      .joke:last-child {
+        border-bottom: none;
+      }
+      @media (max-width: 768px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>Jokebook</header>
+    <main>
+      <section class="card" id="random-section">
+        <h2>Random Joke</h2>
+        <p id="random-joke">Loading...</p>
+        <button id="reload-random">Get Another</button>
+      </section>
+
+      <section class="card" id="categories-section">
+        <h2>Categories</h2>
+        <button id="load-categories">Load Categories</button>
+        <ul id="category-list"></ul>
+        <h3>Search category</h3>
+        <input type="text" id="category-search" placeholder="e.g. funnyJoke" />
+        <button id="search-category-btn">Search</button>
+      </section>
+
+      <section class="card" id="jokes-section">
+        <h2>Jokes</h2>
+        <div id="jokes-container">Select or search a category.</div>
+      </section>
+
+      <section class="card" id="add-section">
+        <h2>Add a New Joke</h2>
+        <form id="add-joke-form">
+          <label>Category</label>
+          <input type="text" id="new-category" required placeholder="funnyJoke" />
+          <label>Setup</label>
+          <input type="text" id="new-setup" required />
+          <label>Delivery</label>
+          <textarea id="new-delivery" required></textarea>
+          <button type="submit">Add Joke</button>
+        </form>
+        <p id="add-status"></p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
